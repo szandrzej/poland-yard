@@ -13,4 +13,4 @@ yarn-error.log*
 *.sln
 
 app/node_modules/
-app/dist
+app/dist/

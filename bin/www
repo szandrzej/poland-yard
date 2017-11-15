@@ -34,7 +34,7 @@ server.listen(port)
 server.on('error', onError)
 server.on('listening', onListening)
 
-mongoose.connect('mongodb://localhost/poland-yard')
+mongoose.connect('mongodb://mongodb://poland-yard:poland-yard@ds163595.mlab.com:63595/poland-yard')
 
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
