@@ -19,6 +19,6 @@ Tadam - oh, wait
 you need to check URLs in code, because sometimes this repo is deployed to HEROKu and I don't have enough time to implement auto
 replace urls depends on build type
 
-If you want to play, go to[https://poland-yard.herokuapp.com](Poland-Yard) 
+If you want to play, go to [Poland-Yard](https://poland-yard.herokuapp.com) 
 
 It way in progress so you know ;)
