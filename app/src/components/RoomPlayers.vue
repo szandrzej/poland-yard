@@ -61,7 +61,7 @@
       text-align: left
       width: 260px
       height: 70px
-      background: white
+      background: #212121
       border-top-left-radius: 35px
       border-bottom-left-radius: 35px
       @include box-shadow(2px, 2px, 10px, rgba(0,0,0,0.75))

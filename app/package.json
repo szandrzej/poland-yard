@@ -17,6 +17,7 @@
     "vue": "^2.3.1",
     "vue-cookie": "^1.1.4",
     "vue-material": "^0.8.1",
+    "vue-moment": "^2.2.0",
     "vue-router": "^3.0.1",
     "vue-socket.io": "^2.1.1-a",
     "vuex": "^2.3.1",

@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const sessionSchema = new Schema({
   name: String,
-  isFinished: { type: Boolean, default: false},
+  isFinished: { type: Boolean, default: false },
   isPrivate: { type: Boolean, default: false },
   round: { type: Number, default: 0, min: 0, max: 24 },
   misterXTurn: { type: Boolean, default: true },
@@ -15,6 +15,13 @@ const sessionSchema = new Schema({
     type: Array,
     default: [ 46, 45, 9, 20 ]
   },
+  chat: [
+    {
+      date: { type: Date, default: Date.now },
+      message: String,
+      sender: String
+    }
+  ],
   game: {
     players: {
       misterX: {

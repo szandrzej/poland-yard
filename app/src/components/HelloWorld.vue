@@ -11,8 +11,9 @@
       <py-pawn :player="detective" class="movable" v-for="detective in players.detectives"
                :key="detective.name"></py-pawn>
     </svg>
-    <py-roundcounter v-on:toggle="showGameProgress = !showGameProgress"></py-roundcounter>
-    <py-progress-panel v-if="showGameProgress"></py-progress-panel>
+    <py-chat v-if="showGameProgress"/>
+    <py-roundcounter v-on:toggle="showGameProgress = !showGameProgress"/>
+    <py-progress-panel v-if="showGameProgress"/>
     <div class="game-end" v-if="gameStopped">
       <div class="game-end-dialog">
         <h2>Koniec gry</h2>
@@ -23,8 +24,8 @@
 
       </div>
     </div>
-    <py-room-data></py-room-data>
-    <py-room-players></py-room-players>
+    <py-room-data/>
+    <py-room-players/>
     <div class="close-button">
       <md-button class="md-raised md-icon-button md-accent" v-on:click.native="$router.go(-1)"><md-icon>close</md-icon></md-button>
     </div>
@@ -44,6 +45,7 @@
   import RoomData from '@/components/RoomData'
   import RoomPlayers from '@/components/RoomPlayers'
   import EventBus from '../common/EventBus'
+  import Chat from '@/components/ChatPanel'
 
   export default {
     name: 'HelloWorld',
@@ -52,6 +54,7 @@
       'py-spot': Spot,
       'py-road': Road,
       'py-pawn': Pawn,
+      'py-chat': Chat,
       'py-progress-panel': ProgressPanel,
       'py-roundcounter': RoundCounter,
       'py-room-data': RoomData,
@@ -105,8 +108,8 @@
     max-width: unset
 
   .map
-    height: 2000px
-    width: 4000px
+    height: 1200px
+    width: 1400px
     background: url('https://www.wired.com/wp-content/uploads/2016/11/GoogleMap-1.jpg')
     -webkit-background-size: cover
     background-size: cover

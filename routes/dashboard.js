@@ -54,6 +54,7 @@ router.post('/', (req, res) => {
   })
 })
 
+
 router.post('/:id/join', (req, res) => {
   Session.findOne({ _id: req.params.id, round: 0 })
     .exec((err, doc) => {

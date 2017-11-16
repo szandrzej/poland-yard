@@ -22,7 +22,7 @@ async function retrieveGame (gameHash, player) {
     }
   })
   if (result.status === 200) {
-    return result.data[0]
+    return result.data[ 0 ]
   } else {
     throw result.response.data
   }

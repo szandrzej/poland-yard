@@ -263,7 +263,8 @@ async function retrieveSpots () {
           possibleRoute: [
             { spot: 1, type: 'metro' },
             { spot: 33, type: 'taxi' },
-            { spot: 45, type: 'taxi' }
+            { spot: 45, type: 'taxi' },
+            { spot: 58, type: 'bus' }
           ]
         },
         {

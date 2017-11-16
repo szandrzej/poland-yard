@@ -7,12 +7,14 @@ import store from './store'
 import Cookie from 'vue-cookie'
 import VueMaterial from 'vue-material/dist/vue-material'
 import Realtime from './realtime'
+import Moment from 'vue-moment'
 import 'vue-material/dist/vue-material.css'
 
 Vue.config.productionTip = false
 
 Vue.use(VueMaterial)
 Vue.use(Cookie)
+Vue.use(Moment)
 
 Realtime.initialize()
 

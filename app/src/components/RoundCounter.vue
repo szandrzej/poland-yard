@@ -32,13 +32,14 @@
 
     &__counter
       cursor: pointer
-      background-color: white
+      background-color: #212121
       border-radius: 100%
       padding: 4px 12px
       @include box-shadow(2px, 2px, 10px, rgba(0, 0, 0, 0.75))
 
       p
         position: relative
+        color: #bbb
 
         span
           font-size: 12px

@@ -43,8 +43,8 @@
   .dashboard__progress
     position: fixed
     height: 60px
-    width: calc(100% - 88px)
-    background-color: white
+    width: calc(70% - 88px)
+    background-color: #212121
     right: 80px
     bottom: 8px
     border-radius: 30px
@@ -56,7 +56,7 @@
 
     .dashboard__progress__cell
       display: inline-flex
-      background-color: #eee
+      background-color: #383838
       border-radius: 25px
       margin: 5px
       min-width: 50px
@@ -78,12 +78,12 @@
         background-color: black
       p
         width: 100%
-        color: white
+        color: #bbb
         font-size: 24px
         font-weight: bold
         margin-top: 14px
         margin-bottom: 0px
 
         &.transparent
-          color: rgba(255, 255, 255, .5)
+          color: rgba(200, 200, 200, .2)
 </style>

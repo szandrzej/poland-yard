@@ -18,13 +18,38 @@ module.exports = {
         })
         so.on('leaveRoomReq', ({ roomName }) => {
           const callback = (err, doc) => {
-            if (err) return
+            if (err || !doc) return
             doc.isFinished = true
             doc.save((err) => {
               so.broadcast.to(roomName).emit('gameClosed', { reason: `Gracz ${soName} opuścił grę!` })
               lobby('refresh_lobby', { refresh: true, origin: 'server' })
               so.leave(roomName)
               console.log(`LEAVE ROOM ${roomName}`)
+            })
+          }
+          Session.findOne({ _id: roomName })
+            .exec(callback)
+        })
+        so.on('sendMessage', ({ roomName, sender, message }) => {
+          const callback = (err, doc) => {
+            if (err) {
+              return io.to(roomName).emit('error', 'nie ma takiej gry, lol')
+            }
+            if (!sender) {
+              return io.to(roomName).emit('error', 'Kiepski payload')
+            }
+            if (![ doc.game.players.misterX, ...doc.game.players.detectives ].find(x => x.name === sender)) {
+              return io.to(roomName).emit('error', 'Nie ma takiego gracza')
+            }
+            doc.chat.push({
+              sender: sender,
+              date: Date.now(),
+              message: message
+            })
+            doc.save(err => {
+              if (err) return io.to(roomName).emit('error', 'Coś poszło nie tak')
+              console.log(roomName)
+              io.to(roomName).emit('updateGame', {})
             })
           }
           Session.findOne({ _id: roomName })
@@ -43,7 +68,7 @@ module.exports = {
                 ticketType,
                 spot
               })
-              if(spot === doc.game.players.misterX.currentSpot) {
+              if (spot === doc.game.players.misterX.currentSpot) {
                 return io.to(roomName).emit('finishGame', `MisterX został złapany! Dobra robota, moi detektywi! Próbował się ukryć na polu ${spot} - co za nikczemnik!`)
               }
               let tickets = result.player.tickets[ ticketType ]
@@ -78,7 +103,6 @@ module.exports = {
                 return io.to(roomName).emit('error', 'cos przy zapisywaniu Session')
               }
               console.log(roomName)
-              // io.emit('updateGame', {})
               io.to(roomName).emit('updateGame', {})
             })
           }

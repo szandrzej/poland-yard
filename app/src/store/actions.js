@@ -40,13 +40,15 @@ export default {
   CLEAR_GAME ({ commit }) {
     commit('CLEAR_GAME')
   },
-  STOP_GAME ({ commit, state }, reason) {
+  STOP_GAME ({ state }, reason) {
     // commit('STOP_GAME', data)
     EventBus.$emit('STOP_GAME', reason)
   },
   FINISH_GAME ({ commit, state }, reason) {
-    // commit('STOP_GAME', data)
     EventBus.$emit('STOP_GAME', reason)
+  },
+  SEND_MESSAGE ({ state }, message) {
+    realtime.sendMessage(state.currentGame._id, state.defaultNickname, message)
   },
   JOIN_GAME ({ commit }, { game, player }) {
     return new Promise(async (resolve, reject) => {

@@ -23,7 +23,7 @@ export default {
       console.log('update_game')
       store.dispatch('UPDATE_GAME')
     })
-    socket.on('gameClosed', ({reason}) => {
+    socket.on('gameClosed', ({ reason }) => {
       store.dispatch('STOP_GAME', reason)
     })
     socket.on('finishGame', (prompt) => {
@@ -50,5 +50,8 @@ export default {
   makeMove (roomName, player, spot, type) {
     console.log(roomName)
     socket.emit('makeMove', { roomName, player, spot: spot.number, ticketType: type })
+  },
+  sendMessage (roomName, sender, message) {
+    socket.emit('sendMessage', { roomName, sender, message })
   }
 }
