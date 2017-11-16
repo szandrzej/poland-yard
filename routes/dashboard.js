@@ -65,7 +65,7 @@ router.post('/:id/join', (req, res) => {
         return res.sendStatus(400)
       }
       if ([ doc.game.players.misterX, ...doc.game.players.detectives ].find(x => x.name === req.body.player)) {
-        return res.sendStatus(400)
+        return res.sendStatus(409)
       }
       if (!doc.game.players.misterX.name) {
         doc.game.players.misterX.name = req.body.player

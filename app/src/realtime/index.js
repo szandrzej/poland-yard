@@ -7,6 +7,7 @@ export default {
   initialize () {
     console.log('Initialized')
     socket = io('https://poland-yard.herokuapp.com')
+    // socket = io('http://localhost:3000')
     socket.on('connect', () => {
       console.log('Connected')
     })
@@ -24,6 +25,9 @@ export default {
     })
     socket.on('gameClosed', ({reason}) => {
       store.dispatch('STOP_GAME', reason)
+    })
+    socket.on('finishGame', (prompt) => {
+      store.dispatch('FINISH_GAME', prompt)
     })
     socket.on('pingololo', (data) => {
       console.log(`PING from ${data.roomName}`)

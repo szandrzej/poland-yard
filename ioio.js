@@ -43,12 +43,16 @@ module.exports = {
                 ticketType,
                 spot
               })
+              if(spot === doc.game.players.misterX.currentSpot) {
+                return io.to(roomName).emit('finishGame', `MisterX został złapany! Dobra robota, moi detektywi! Próbował się ukryć na polu ${spot} - co za nikczemnik!`)
+              }
               let tickets = result.player.tickets[ ticketType ]
               if (tickets && tickets > 0) {
                 result.player.tickets[ ticketType ]--
               } else {
                 return io.to(roomName).emit('error', 'brakuje ci biletów')
               }
+
               const otherDetectives = findOtherDetectives(doc.game.players, player)
               let canChangeTurn = true
               let i = 0

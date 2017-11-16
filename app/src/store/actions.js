@@ -44,12 +44,20 @@ export default {
     // commit('STOP_GAME', data)
     EventBus.$emit('STOP_GAME', reason)
   },
-  async JOIN_GAME ({ commit }, { game, player }) {
-    const role = await api.joinGame(game, player)
-    commit('SET_DEFAULT_NICK', player)
-    commit('SET_CURRENT_GAME', await api.retrieveGame(game.id, player))
-    return new Promise((resolve) => {
-      resolve(role)
+  FINISH_GAME ({ commit, state }, reason) {
+    // commit('STOP_GAME', data)
+    EventBus.$emit('STOP_GAME', reason)
+  },
+  JOIN_GAME ({ commit }, { game, player }) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const role = await api.joinGame(game, player)
+        commit('SET_DEFAULT_NICK', player)
+        commit('SET_CURRENT_GAME', await api.retrieveGame(game.id, player))
+        resolve(role)
+      } catch (ex) {
+        reject(ex)
+      }
     })
   },
   async UPDATE_GAME ({ commit, state, getters }) {

@@ -141,44 +141,70 @@ async function retrieveSpots () {
           position: { x: 500, y: 100 },
           status: { taxi: true, bus: true, metro: true },
           possibleRoute: [
-            { spot: 8, type: 'taxi' }, { spot: 9, type: 'taxi' }, { spot: 58, type: 'bus' }
+            { spot: 8, type: 'taxi' },
+            { spot: 9, type: 'taxi' },
+            { spot: 58, type: 'bus' },
+            { spot: 46, type: 'metro' }
           ]
         },
         {
           number: 8,
           position: { x: 350, y: 250 },
           status: { taxi: true, bus: false, metro: false },
-          possibleRoute: [ 1, 19, 18 ]
+          possibleRoute: [
+            { spot: 1, type: 'taxi' },
+            { spot: 19, type: 'taxi' },
+            { spot: 18, type: 'taxi' }
+          ]
         },
         {
           number: 9,
           position: { x: 650, y: 250 },
           status: { taxi: true, bus: false, metro: false },
-          possibleRoute: [ 1, 20, 19 ]
+          possibleRoute: [
+            { spot: 1, type: 'taxi' },
+            { spot: 20, type: 'taxi' },
+            { spot: 19, type: 'taxi' }
+          ]
         },
         {
           number: 18,
           position: { x: 220, y: 380 },
           status: { taxi: true, bus: false, metro: false },
-          possibleRoute: [ 8, 31, 43 ]
+          possibleRoute: [
+            { spot: 8, type: 'taxi' },
+            { spot: 31, type: 'taxi' },
+            { spot: 43, type: 'taxi' }
+          ]
         },
         {
           number: 19,
           position: { x: 460, y: 420 },
           status: { taxi: true, bus: false, metro: false },
-          possibleRoute: [ 8, 9, 32 ]
+          possibleRoute: [
+            { spot: 8, type: 'taxi' },
+            { spot: 9, type: 'taxi' },
+            { spot: 32, type: 'taxi' }
+          ]
         },
         {
           number: 20,
           position: { x: 800, y: 320 },
           status: { taxi: true, bus: false, metro: false },
-          possibleRoute: [ 9, 33 ]
+          possibleRoute: [
+            { spot: 9, type: 'taxi' },
+            { spot: 33, type: 'taxi' }
+          ]
         },
         {
           number: 31,
           position: { x: 300, y: 480 },
           status: { taxi: true, bus: false, metro: false },
-          possibleRoute: [ 18, 43, 44 ]
+          possibleRoute: [
+            { spot: 18, type: 'taxi' },
+            { spot: 43, type: 'taxi' },
+            { spot: 44, type: 'taxi' }
+          ]
         },
         {
           number: 32,
@@ -194,19 +220,31 @@ async function retrieveSpots () {
           number: 33,
           position: { x: 1000, y: 530 },
           status: { taxi: true, bus: false, metro: false },
-          possibleRoute: [ 46, 32, 20 ]
+          possibleRoute: [
+            { spot: 46, type: 'taxi' },
+            { spot: 32, type: 'taxi' },
+            { spot: 20, type: 'taxi' }
+          ]
         },
         {
           number: 43,
           position: { x: 150, y: 600 },
           status: { taxi: true, bus: false, metro: false },
-          possibleRoute: [ 18, 31, 57 ]
+          possibleRoute: [
+            { spot: 18, type: 'taxi' },
+            { spot: 31, type: 'taxi' },
+            { spot: 57, type: 'taxi' }
+          ]
         },
         {
           number: 44,
           position: { x: 500, y: 650 },
           status: { taxi: true, bus: false, metro: false },
-          possibleRoute: [ 31, 32, 58 ]
+          possibleRoute: [
+            { spot: 31, type: 'taxi' },
+            { spot: 32, type: 'taxi' },
+            { spot: 58, type: 'taxi' }
+          ]
         },
         {
           number: 45,
@@ -222,19 +260,32 @@ async function retrieveSpots () {
           number: 46,
           position: { x: 1050, y: 650 },
           status: { taxi: true, bus: true, metro: true },
-          possibleRoute: [ 1, 33, 45 ]
+          possibleRoute: [
+            { spot: 1, type: 'metro' },
+            { spot: 33, type: 'taxi' },
+            { spot: 45, type: 'taxi' }
+          ]
         },
         {
           number: 57,
           position: { x: 220, y: 750 },
           status: { taxi: true, bus: false, metro: false },
-          possibleRoute: [ 43, 58 ]
+          possibleRoute: [
+            { spot: 43, type: 'taxi' },
+            { spot: 58, type: 'taxi' }
+          ]
         },
         {
           number: 58,
           position: { x: 600, y: 800 },
           status: { taxi: true, bus: true, metro: false },
-          possibleRoute: [ 1, 44, 46, 45, 57 ]
+          possibleRoute: [
+            { spot: 1, type: 'bus' },
+            { spot: 44, type: 'taxi' },
+            { spot: 46, type: 'bus' },
+            { spot: 45, type: 'taxi' },
+            { spot: 57, type: 'taxi' }
+          ]
         }
       ]
     )

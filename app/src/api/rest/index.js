@@ -2,6 +2,7 @@ import axios from 'axios'
 
 var instance = axios.create({
   baseURL: 'https://poland-yard.herokuapp.com/api',
+  // baseURL: 'http://localhost:3000/api',
   timeout: 1000
 })
 
